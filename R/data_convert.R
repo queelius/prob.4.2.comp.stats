@@ -11,15 +11,8 @@
 #' @export
 em.counts_to_responses <- function(counts)
 {
-  # say counts = (379,299,222,145,109,95,73,59,45,30,24,12,4,2,0,1,1)
-  # this means:
-  #     379 responded 0 encounters
-  #     299 responded 1 encounters
-  #     222 responded 2 encounters
-  #     .
-  #     .
-  #     .
-  #     1 responded 16 encounters
+  # say counts = (379,299,...), then 379 responded 0 encounters, 299 responded
+  # 1 encounter, and so on.
   data <- NULL
   for (i in 1:length(counts))
   {
@@ -42,9 +35,7 @@ em.responses_to_counts <- function(data)
   counts <- NULL
   for (i in 0:16)
   {
-    ni <- data[data == i]
-    l <-length(ni)
-    counts <- append(counts,l)
+    counts <- append(counts,length(data[data == i]))
   }
   counts
 }

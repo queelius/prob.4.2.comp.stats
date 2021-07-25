@@ -3,7 +3,7 @@
 #' EM algorithm estimator for problem 4.2
 #' @param theta a starting guess for theta = (alpha,beta,mu,lambda)
 #' @param counts observed count data (n0,n1,...,n16)
-#' @param eps stopping condition, ||theta.new-theta.old||_infinity < eps
+#' @param eps stopping condition
 #' @param debug whether to print out debugging info while running
 #' @keywords EM algorithm
 #' @export
@@ -11,7 +11,7 @@ em.estimator <- function(theta,counts,eps=1e-6,debug=T)
 {
   Pi <- function(i,theta)
   {
-    as.numeric(i==0) * theta[1] + theta[2] * theta[3]^i * exp(-theta[3]) + (1 - theta[1] - theta[2]) * theta[4]^i * exp(-theta[4])
+    (i==0)*theta[1] + theta[2]*theta[3]^i*exp(-theta[3]) + (1-theta[1]-theta[2])*theta[4]^i*exp(-theta[4])
   }
 
   z0 <- function(theta)
@@ -67,12 +67,8 @@ em.estimator <- function(theta,counts,eps=1e-6,debug=T)
   {
     i <- i + 1
     theta.new <- update(theta,counts)
-    if (debug==T)
-    {
-      if (i %% 100 == 0) { cat("iteration =",i," theta = (",theta.new,")'\n") }
-    }
-    if (max(abs(theta.new - theta)) < eps)
-      break
+    if (debug==T && i %% 100 == 0) { cat("iteration =",i," theta = (",theta.new,")'\n") }
+    if (max(abs(theta.new - theta)) < eps) { break }
     theta <- theta.new
   }
   list(estimate=theta.new,iterations=i)

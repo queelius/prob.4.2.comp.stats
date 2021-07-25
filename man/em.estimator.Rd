@@ -11,7 +11,7 @@ em.estimator(theta, counts, eps = 1e-06, debug = T)
 
 \item{counts}{observed count data (n0,n1,...,n16)}
 
-\item{eps}{stopping condition, ||theta.new-theta.old||_infinity < eps}
+\item{eps}{stopping condition}
 
 \item{debug}{whether to print out debugging info while running}
 }

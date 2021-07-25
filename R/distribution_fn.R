@@ -5,19 +5,16 @@
 #' @export
 em.pdf <- function(x,theta)
 {
-  theta[1]*as.numeric(x==0) * theta[2]*dpois(x,theta[3]) * (1-theta[1]-theta[2])*dpois(x,theta[4])
+  theta[1]*(x==0) + theta[2]*dpois(x,theta[3]) + (1-theta[1]-theta[2])*dpois(x,theta[4])
 }
 
+
 #' log-likelihood function for problem 4.2
-#' @param theta log-likelihood evaluated at theta = (alpha,beta,mu,lambda)
+#' @param theta evaluated at theta = (alpha,beta,mu,lambda)
 #' @param data observed response data
 #' @keywords log-likehood
 #' @export
 em.loglike <- function(theta,data)
 {
-  #s <- 0
-  #for (x in data) { s <- s + log(pdf(x,theta)) }
-  #s
   sum(log(em.pdf(data,theta)))
 }
-

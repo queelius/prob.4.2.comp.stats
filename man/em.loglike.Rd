@@ -7,7 +7,7 @@
 em.loglike(theta, data)
 }
 \arguments{
-\item{theta}{log-likelihood evaluated at theta = (alpha,beta,mu,lambda)}
+\item{theta}{evaluated at theta = (alpha,beta,mu,lambda)}
 
 \item{data}{observed response data}
 }
