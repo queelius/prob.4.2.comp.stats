@@ -8,8 +8,12 @@ em.responses_to_counts(data)
 }
 \arguments{
 \item{data}{Vector of responses
+keywords counts multinomial responses
 export}
 }
 \description{
-Convert individual responses to count data
+This is the inverse of em.counts_to_responses, e.g.,
+em.responses_to_counts(em.counts_to_responses(counts)) == counts
+and
+em.counts_to_responses(em.responses_to_counts(data)) == data.
 }

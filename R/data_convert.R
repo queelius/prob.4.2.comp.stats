@@ -7,7 +7,7 @@
 #' e.g., x[k] is the k-th persons response to the number of risky sexual
 #' encounters.
 #' @param counts Count data to convert
-#' @keywords counts multinomial response
+#' @keywords counts multinomial responses
 #' @export
 em.counts_to_responses <- function(counts)
 {
@@ -21,15 +21,21 @@ em.counts_to_responses <- function(counts)
   #     .
   #     1 responded 16 encounters
   data <- NULL
-  for (i in 1:length(ns))
+  for (i in 1:length(counts))
   {
-    data <- append(data,rep((i-1),ns[i]))
+    data <- append(data,rep((i-1),counts[i]))
   }
   data
 }
 
 #' Convert individual responses to count data
+#'
+#' This is the inverse of em.counts_to_responses, e.g.,
+#'   em.responses_to_counts(em.counts_to_responses(counts)) == counts
+#' and
+#'   em.counts_to_responses(em.responses_to_counts(data)) == data.
 #' @param data Vector of responses
+#' keywords counts multinomial responses
 #' export
 em.responses_to_counts <- function(data)
 {

@@ -19,4 +19,4 @@ encounters.
 }
 \keyword{counts}
 \keyword{multinomial}
-\keyword{response}
+\keyword{responses}
