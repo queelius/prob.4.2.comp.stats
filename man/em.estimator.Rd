@@ -18,5 +18,3 @@ em.estimator(theta, counts, eps = 1e-06, debug = T)
 \description{
 EM algorithm estimator for problem 4.2
 }
-\keyword{EM}
-\keyword{algorithm}

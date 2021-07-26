@@ -4,7 +4,7 @@
 \alias{em.observed_info}
 \title{Observed information of EM point estimator based on an observed sample}
 \usage{
-em.observed_info(theta.em, data)
+em.observed_info(theta.em, counts)
 }
 \arguments{
 \item{theta.em}{An EM point estimator of theta given observed counts}
@@ -14,5 +14,3 @@ em.observed_info(theta.em, data)
 \description{
 Observed information of EM point estimator based on an observed sample
 }
-\keyword{information}
-\keyword{observed}

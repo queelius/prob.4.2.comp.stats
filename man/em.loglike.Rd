@@ -14,4 +14,3 @@ em.loglike(theta, data)
 \description{
 log-likelihood function for problem 4.2
 }
-\keyword{log-likehood}

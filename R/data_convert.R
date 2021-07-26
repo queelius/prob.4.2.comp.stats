@@ -11,7 +11,6 @@
 #' @param counts count data
 #' @return the count data converted to response data, say counts = (379,299,...),
 #'         then 379 responded 0 encounters, 299 responded 1 encounter, ...
-#' @keywords counts multinomial responses
 #' @examples
 #'   # let counts be the count data
 #'   counts[j] # denotes number of respondents with j risky sexual encounters.
@@ -36,7 +35,6 @@ em.counts_to_responses <- function(counts)
 #'   em.counts_to_responses(em.responses_to_counts(data)) == data.
 #' @param data response data
 #' @returns response data converted to count data
-#' @keywords counts multinomial responses
 #' @export
 em.responses_to_counts <- function(data)
 {

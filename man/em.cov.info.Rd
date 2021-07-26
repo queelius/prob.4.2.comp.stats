@@ -14,5 +14,3 @@ em.cov.info(theta.em, counts)
 \description{
 Covariance matrix of EM point estimator based on the observed information matrix
 }
-\keyword{covariance}
-\keyword{estimator}

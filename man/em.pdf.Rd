@@ -14,4 +14,3 @@ em.pdf(x, theta)
 \description{
 probability density function (pdf) for problem 4.2
 }
-\keyword{density}

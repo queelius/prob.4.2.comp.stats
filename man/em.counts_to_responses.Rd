@@ -27,6 +27,3 @@ em.counts_to_responses, e.g.,\preformatted{ xs <- em.counts_to_responses(counts)
   xs <- em.counts_to_responses(counts)
   xs[k] # denotes the response of the i-th person
 }
-\keyword{counts}
-\keyword{multinomial}
-\keyword{responses}

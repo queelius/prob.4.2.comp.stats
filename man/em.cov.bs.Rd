@@ -4,7 +4,7 @@
 \alias{em.cov.bs}
 \title{Bootstrap covariance estimator of EM point estimator}
 \usage{
-em.cov.bs(theta.em, counts, m = 2000, em.eps = 1e-06, debug = F)
+em.cov.bs(theta.em, counts, m = 2000, eps = 1e-06, debug = F)
 }
 \arguments{
 \item{theta.em}{An EM point estimator of theta given observed counts}
@@ -13,12 +13,12 @@ em.cov.bs(theta.em, counts, m = 2000, em.eps = 1e-06, debug = F)
 
 \item{m}{maximum bootstrap replicates}
 
-\item{em.eps}{EM algorithm epsilon stopping condition}
+\item{eps}{EM algorithm epsilon stopping condition}
 
 \item{debug}{whether to print out debugging info while running}
 }
 \description{
-Bootstrap covariance estimator of EM point estimator
+Estimate the covariance of the EM point estimator for
+theta = (alpha,beta,mu,lamda)'
+using Bootstrapping.
 }
-\keyword{EM}
-\keyword{algorithm}

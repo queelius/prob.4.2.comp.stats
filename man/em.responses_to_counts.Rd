@@ -18,6 +18,3 @@ em.responses_to_counts(em.counts_to_responses(counts)) == counts
 and
 em.counts_to_responses(em.responses_to_counts(data)) == data.
 }
-\keyword{counts}
-\keyword{multinomial}
-\keyword{responses}
