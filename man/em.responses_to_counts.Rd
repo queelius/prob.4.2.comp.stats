@@ -2,14 +2,15 @@
 % Please edit documentation in R/data_convert.R
 \name{em.responses_to_counts}
 \alias{em.responses_to_counts}
-\title{Convert individual responses to count data}
+\title{Convert individual response data to count data}
 \usage{
 em.responses_to_counts(data)
 }
 \arguments{
-\item{data}{Vector of responses
-keywords counts multinomial responses
-export}
+\item{data}{response data}
+}
+\value{
+response data converted to count data
 }
 \description{
 This is the inverse of em.counts_to_responses, e.g.,
@@ -17,3 +18,6 @@ em.responses_to_counts(em.counts_to_responses(counts)) == counts
 and
 em.counts_to_responses(em.responses_to_counts(data)) == data.
 }
+\keyword{counts}
+\keyword{multinomial}
+\keyword{responses}

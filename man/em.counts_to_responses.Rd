@@ -7,15 +7,25 @@
 em.counts_to_responses(counts)
 }
 \arguments{
-\item{counts}{Count data to convert}
+\item{counts}{count data}
+}
+\value{
+the count data converted to response data, say counts = (379,299,...),
+then 379 responded 0 encounters, 299 responded 1 encounter, ...
 }
 \description{
 There are many ways to represent the same data. In problem 4.2, the data
-is given in the form of counts, e.g., counts\link{j} represents the number
-of people who responded with j risky sexual encounters.
-The more natural form of this data is as a vector of indivual responses,
-e.g., x\link{k} is the k-th persons response to the number of risky sexual
-encounters.
+is given in the form of counts. This is the inverse of
+em.counts_to_responses, e.g.,\preformatted{ xs <- em.counts_to_responses(counts)
+ em.responses_to_counts(xs) == counts
+ em.counts_to_responses(em.responses_to_counts(xs)) == xs.
+}
+}
+\examples{
+  # let counts be the count data
+  counts[j] # denotes number of respondents with j risky sexual encounters.
+  xs <- em.counts_to_responses(counts)
+  xs[k] # denotes the response of the i-th person
 }
 \keyword{counts}
 \keyword{multinomial}
