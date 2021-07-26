@@ -19,15 +19,15 @@ em.Pi <- function(i,theta)
 
 em.z0 <- function(theta)
 {
-  theta[1] / Pi(0,theta)
+  theta[1] / em.Pi(0,theta)
 }
 
 em.t <- function(i,theta)
 {
-  theta[2] * theta[3]^i * exp(-theta[3]) / Pi(i,theta)
+  theta[2] * theta[3]^i * exp(-theta[3]) / em.Pi(i,theta)
 }
 
 em.p <- function(i,theta)
 {
-  (1-theta[1] - theta[2]) * theta[4]^i * exp(-theta[4]) / Pi(i,theta)
+  (1-theta[1] - theta[2]) * theta[4]^i * exp(-theta[4]) / em.Pi(i,theta)
 }
