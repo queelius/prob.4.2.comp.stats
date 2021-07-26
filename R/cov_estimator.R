@@ -62,9 +62,9 @@ em.cov.info <- function(theta.em,counts)
 {
   res <- matrix(
     c(0,0,0,0,
-    0,em.beta.var(theta.em,counts),0,0,
-    0,0,em.mu.var(theta.em,counts),
-    0,0,0,em.lamda.var(theta.em,counts)),nrow=4,byrow=T)
+      0,em.beta.var(theta.em,counts),0,0,
+      0,0,em.mu.var(theta.em,counts),0,
+      0,0,0,em.lamda.var(theta.em,counts)),nrow=4,byrow=T)
   rownames(res) <- c("alpha","beta","mu","lamda")
   colnames(res) <- rownames(res)
   res
