@@ -8,7 +8,6 @@ em.pdf <- function(x,theta)
   theta[1]*(x==0) + theta[2]*dpois(x,theta[3]) + (1-theta[1]-theta[2])*dpois(x,theta[4])
 }
 
-
 #' log-likelihood function for problem 4.2
 #' @param theta evaluated at theta = (alpha,beta,mu,lambda)
 #' @param data observed response data

@@ -39,8 +39,7 @@ em.sd.bs <- function(theta.em, counts, m=10000, em.eps=1e-6,bs.eps=1e-4,debug=F)
 em.observed_info <- function(theta.em,data)
 {
   library(numDeriv)
-  l <- function(theta) { em.loglike(theta,data) }
-  -hessian(l,theta.em)
+  -hessian(function(theta) { em.loglike(theta,data) },theta.em)
 }
 
 #' Covariance matrix of EM point estimator based on the observed information matrix
@@ -50,8 +49,6 @@ em.observed_info <- function(theta.em,data)
 #' @export
 em.cov.info <- function(theta.em,counts)
 {
-  data <- em.counts_to_responses(counts)
-  obs_info <- em.observed_info(theta.em,data)
-  solve(obs_info)
+  solve(em.observed_info(theta.em,em.counts_to_responses(counts)))
 }
 
