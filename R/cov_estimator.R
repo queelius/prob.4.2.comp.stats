@@ -75,7 +75,7 @@ em.beta.var <- function(theta.em,counts)
   s <- 0
   for (i in 0:16)
   {
-    s <- s + counts[i+1]*((theta[3]^i*exp(-theta[3])-theta[4]^i*exp(-theta[4]))/my.Pi(i,theta))^2
+    s <- s + counts[i+1]*((theta[3]^i*exp(-theta[3])-theta[4]^i*exp(-theta[4]))/em.Pi(i,theta))^2
   }
   1/s
 }
@@ -85,7 +85,7 @@ em.mu.var <- function(theta.em,counts)
   s <- 0
   for (i in 0:16)
   {
-    s <- s + counts[i+1]*((theta[2]*exp(-theta[3])*i*theta[3]^(i-1)-theta[2]*theta[3]^i*exp(-theta[3]))/my.Pi(i,theta))^2
+    s <- s + counts[i+1]*((theta[2]*exp(-theta[3])*i*theta[3]^(i-1)-theta[2]*theta[3]^i*exp(-theta[3]))/em.Pi(i,theta))^2
   }
   1/s
 }
@@ -96,7 +96,7 @@ em.lamda.var <- function(theta.em,counts)
   gam <- 1-theta[1]-theta[2]
   for (i in 0:16)
   {
-    s <- s + counts[i+1]*((gam*theta[4]^(i-1)*exp(-theta[4]) - gam*theta[4]^i*exp(-theta[4]))/my.Pi(i,theta))^2
+    s <- s + counts[i+1]*((gam*theta[4]^(i-1)*exp(-theta[4]) - gam*theta[4]^i*exp(-theta[4]))/em.Pi(i,theta))^2
   }
   1/s
 }
