@@ -8,30 +8,10 @@
 #' @export
 em.estimator <- function(theta,counts,eps=1e-6,debug=T)
 {
-  Pi <- function(i,theta)
-  {
-    (i==0)*theta[1] + theta[2]*theta[3]^i*exp(-theta[3]) + (1-theta[1]-theta[2])*theta[4]^i*exp(-theta[4])
-  }
-
-  z0 <- function(theta)
-  {
-    theta[1] / Pi(0,theta)
-  }
-
-  t <- function(i,theta)
-  {
-    theta[2] * theta[3]^i * exp(-theta[3]) / Pi(i,theta)
-  }
-
-  p <- function(i,theta)
-  {
-    (1-theta[1] - theta[2]) * theta[4]^i * exp(-theta[4]) / Pi(i,theta)
-  }
-
   update <- function(theta,counts)
   {
     N <- sum(counts)
-    alpha <- counts[1] * z0(theta) / N
+    alpha <- counts[1] * em.z0(theta) / N
     beta <- 0
     mu_num <- 0
     mu_denom <- 0
@@ -41,8 +21,8 @@ em.estimator <- function(theta,counts,eps=1e-6,debug=T)
 
     for (i in 0:16)
     {
-      ti <- t(i,theta)
-      pi <- p(i,theta)
+      ti <- em.t(i,theta)
+      pi <- em.p(i,theta)
 
       beta <- beta + counts[i+1] * ti
 

@@ -1,17 +1,33 @@
-#' probability density function (pdf) for problem 4.2
-#' @param x density evaluated at x given index theta
-#' @param theta index of indexed family of density functions, theta = (alpha,beta,mu,lambda)
-#' @export
-em.pdf <- function(x,theta)
-{
-  theta[1]*(x==0) + theta[2]*dpois(x,theta[3]) + (1-theta[1]-theta[2])*dpois(x,theta[4])
-}
-
 #' log-likelihood function for problem 4.2
 #' @param theta evaluated at theta = (alpha,beta,mu,lambda)
-#' @param data observed response data
+#' @param data observed counts
 #' @export
-em.loglike <- function(theta,data)
+em.loglike <- function(theta,counts)
 {
-  sum(log(em.pdf(data,theta)))
+  s <- 0
+  for (i in 0:16)
+  {
+    s <- s + counts[i+1] * log(em.Pi(i,theta))
+  }
+  s
+}
+
+em.Pi <- function(i,theta)
+{
+  (i==0)*theta[1] + theta[2]*theta[3]^i*exp(-theta[3]) + (1-theta[1]-theta[2])*theta[4]^i*exp(-theta[4])
+}
+
+em.z0 <- function(theta)
+{
+  theta[1] / Pi(0,theta)
+}
+
+em.t <- function(i,theta)
+{
+  theta[2] * theta[3]^i * exp(-theta[3]) / Pi(i,theta)
+}
+
+em.p <- function(i,theta)
+{
+  (1-theta[1] - theta[2]) * theta[4]^i * exp(-theta[4]) / Pi(i,theta)
 }

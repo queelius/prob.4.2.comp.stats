@@ -4,12 +4,12 @@
 \alias{em.loglike}
 \title{log-likelihood function for problem 4.2}
 \usage{
-em.loglike(theta, data)
+em.loglike(theta, counts)
 }
 \arguments{
 \item{theta}{evaluated at theta = (alpha,beta,mu,lambda)}
 
-\item{data}{observed response data}
+\item{data}{observed counts}
 }
 \description{
 log-likelihood function for problem 4.2
